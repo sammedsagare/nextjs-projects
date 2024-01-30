@@ -6,10 +6,7 @@ const Home = () => {
       <h1 className="head_text text-center">
         Explore and exchange
         <br className="max-md:hidden" />
-        <span className="cyan_gradient text-center mt-2">
-          {" "}
-          AI-powered prompts
-        </span>
+        <span className="cyan_gradient text-center mt-2"> GPT prompts</span>
       </h1>
       <p className="desc text-center">
         <span className="cyan_gradient font-semibold">promptshare</span> is an
