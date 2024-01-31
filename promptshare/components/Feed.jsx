@@ -18,32 +18,26 @@ const PromptCardList = ({ data, handleTagClick }) => {
 
 const Feed = () => {
   const [searchText, setSearchText] = useState("");
-  const [prompts, setPrompts] = useState([]);
-
-  const handleSearchChange = (e) => {
-    setSearchText(e.target.value);
-  };
+  const [prompts, setPrompt] = useState([]);
 
   useEffect(() => {
-    const fetchPrompts = async (promptID = "") => {
+    const fetchPrompts = async () => {
       try {
-        const response = await fetch(`/api/prompt/${promptID}`);
+        const response = await fetch("/api/prompt/");
         if (!response.ok) {
           throw new Error(`Failed to fetch prompts: ${response.status}`);
         }
 
         const data = await response.json();
-        setPrompts(data);
+        setPrompt(data);
         console.log(data);
       } catch (error) {
         console.error("Error fetching prompts:", error.message);
       }
     };
 
-    // Use searchText as the prompt ID
-    const promptID = searchText.trim();
-    fetchPrompts(promptID);
-  }, [searchText]);
+    fetchPrompts();
+  }, []);
 
   return (
     <section className="feed">
@@ -52,7 +46,7 @@ const Feed = () => {
           type="text"
           placeholder="Search for a tag / username."
           value={searchText}
-          onChange={handleSearchChange}
+          onChange={() => {}}
           required
           className="search_input peer"
         />
