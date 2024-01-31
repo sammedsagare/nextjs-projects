@@ -29,8 +29,6 @@ export const GET = async (req, { params }) => {
 //patch to update prompt
 
 export const PATCH = async (req, { params }) => {
-  const { prompt, tag } = await req.json();
-
   try {
     await connectToDB();
 
@@ -39,7 +37,7 @@ export const PATCH = async (req, { params }) => {
       tag,
     });
 
-    if (!prompt) {
+    if (!existingPrompt) {
       return new Response("Prompt not found.", {
         status: 404,
         statusText: "Prompt not found",

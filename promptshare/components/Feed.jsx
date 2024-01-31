@@ -18,30 +18,32 @@ const PromptCardList = ({ data, handleTagClick }) => {
 
 const Feed = () => {
   const [searchText, setSearchText] = useState("");
-  const [prompts, setPrompt] = useState([]);
+  const [prompts, setPrompts] = useState([]);
 
   const handleSearchChange = (e) => {
     setSearchText(e.target.value);
   };
 
   useEffect(() => {
-    const fetchPrompts = async () => {
+    const fetchPrompts = async (promptID = "") => {
       try {
-        const response = await fetch("/api/prompt/");
+        const response = await fetch(`/api/prompt/${promptID}`);
         if (!response.ok) {
           throw new Error(`Failed to fetch prompts: ${response.status}`);
         }
 
         const data = await response.json();
-        setPrompt(data);
+        setPrompts(data);
         console.log(data);
       } catch (error) {
         console.error("Error fetching prompts:", error.message);
       }
     };
 
-    fetchPrompts();
-  }, []);
+    // Use searchText as the prompt ID
+    const promptID = searchText.trim();
+    fetchPrompts(promptID);
+  }, [searchText]);
 
   return (
     <section className="feed">
