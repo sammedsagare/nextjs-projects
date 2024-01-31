@@ -2,18 +2,18 @@ import Link from "next/link";
 
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   return (
-    <section className="w-full max-w-full flex-start flex-col">
-      <h1 className="head_text text-left">
+    <section className="w-full max-w-full flex flex-col items-center ">
+      <h1 className="head_text text-center ">
         <span className="blue_gradient">{type} Prompt</span>
       </h1>
-      <p className="desc text-left max-w-md">
+      <p className="desc text-center w-full max-w-2xl mb-8">
         {type} and share fantastic prompts with the world, allowing your
         creativity and imagination to run free on any AI-powered platform!
       </p>
 
       <form
         onSubmit={handleSubmit}
-        className="mt-10 w-full max-w-2xl flex flex-col gap7 glassmorphism"
+        className="w-full max-w-2xl flex flex-col gap-7 glassmorphism"
       >
         <label>
           <span className="font-satoshi font-bold text-base text-white">
@@ -31,7 +31,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
 
         <label>
           <span className="font-satoshi font-bold text-base text-white">
-            Tag <span className="font-normal">(#product, #webdev, #idea)</span>
+            Tag(s)
           </span>
 
           <input
@@ -43,7 +43,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           />
         </label>
 
-        <div className="flex-end mx-3 mt-5 gap-4">
+        <div className="flex items-center justify-end mx-3 mt-5 gap-4">
           <Link href="/" className="text-white text-sm">
             Cancel
           </Link>
