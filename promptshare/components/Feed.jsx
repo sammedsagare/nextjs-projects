@@ -26,11 +26,18 @@ const Feed = () => {
 
   useEffect(() => {
     const fetchPrompts = async () => {
-      const response = await fetch("/api/prompt/");
-      const data = await response.json();
+      try {
+        const response = await fetch("/api/prompt/");
+        if (!response.ok) {
+          throw new Error(`Failed to fetch prompts: ${response.status}`);
+        }
 
-      setPrompt(data);
-      console.log(data);
+        const data = await response.json();
+        setPrompt(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching prompts:", error.message);
+      }
     };
 
     fetchPrompts();
