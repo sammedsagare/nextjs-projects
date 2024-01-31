@@ -30,14 +30,23 @@ const Feed = () => {
 
         const data = await response.json();
         setPrompt(data);
-        console.log(data);
+        console.log("Fetched prompts successfully:", data);
       } catch (error) {
         console.error("Error fetching prompts:", error.message);
       }
     };
 
+    console.log("Executing useEffect"); // Log when useEffect is triggered
+
     fetchPrompts();
-  }, []);
+  }, []); // Dependency array is empty, meaning it runs once on mount
+
+  const handleInputChange = (event) => {
+    const inputText = event.target.value;
+    console.log("Input changed:", inputText);
+    setSearchText(inputText);
+    // You may want to trigger a new fetch based on the search text
+  };
 
   return (
     <section className="feed">
@@ -46,7 +55,7 @@ const Feed = () => {
           type="text"
           placeholder="Search for a tag / username."
           value={searchText}
-          onChange={() => {}}
+          onChange={handleInputChange}
           required
           className="search_input peer"
         />
