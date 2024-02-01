@@ -20,26 +20,23 @@ const Feed = () => {
   const [searchText, setSearchText] = useState("");
   const [prompts, setPrompt] = useState([]);
 
-  useEffect(() => {
-    const fetchPrompts = async () => {
-      try {
-        const response = await fetch("/api/prompt/");
-        if (!response.ok) {
-          throw new Error(`Failed to fetch prompts: ${response.status}`);
-        }
-
-        const data = await response.json();
-        setPrompt(data);
-        console.log("Fetched prompts successfully:", data);
-      } catch (error) {
-        console.error("Error fetching prompts:", error.message);
+  async function fetchPrompts() {
+    try {
+      const fetchedPrompts = await fetch("/api/prompt/");
+      if (!fetchedPrompts.ok) {
+        throw new Error(`Failed to fetch prompts: ${fetchedPrompts.status}`);
       }
-    };
+      const data = await fetchedPrompts.json();
+      console.log(data);
+      setPrompt(data);
+    } catch (error) {
+      console.error("Error fetching prompts:", error.message);
+    }
+  }
 
-    console.log("Executing useEffect"); // Log when useEffect is triggered
-
+  useEffect(() => {
     fetchPrompts();
-  }, []); // Dependency array is empty, meaning it runs once on mount
+  }, []);
 
   const handleInputChange = (event) => {
     const inputText = event.target.value;
