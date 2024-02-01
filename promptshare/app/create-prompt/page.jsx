@@ -9,7 +9,7 @@ const CreatePrompt = () => {
   const router = useRouter();
   const { data: session } = useSession();
   const [submitting, setSubmitting] = useState(false);
-  const [post, setPost] = useState({
+  const [prompt, setPrompt] = useState({
     prompt: "",
     tag: "",
   });
@@ -23,9 +23,9 @@ const CreatePrompt = () => {
       const response = await fetch("/api/prompt/new", {
         method: "POST",
         body: JSON.stringify({
-          prompt: post.prompt,
+          prompt: prompt.prompt,
           userID: session?.user.id,
-          tag: post.tag,
+          tag: prompt.tag,
         }),
       });
 
@@ -42,8 +42,8 @@ const CreatePrompt = () => {
   return (
     <Form
       type="Create"
-      post={post}
-      setPost={setPost}
+      post={prompt}
+      setPost={setPrompt}
       submitting={submitting}
       handleSubmit={createPrompt}
     />

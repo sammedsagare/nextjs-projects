@@ -8,15 +8,11 @@ export const GET = async (req, { params }) => {
     const prompts = await Prompt.find({
       creator: params.id,
     }).populate("creator");
-    return new Response(JSON.stringify(prompts), {
-      status: 200,
-      statusText: "Prompts fetched",
-    });
+    return new Response(JSON.stringify(prompts), { status: 200 });
   } catch (error) {
     console.log(error);
-    return new Response("Failed to fetch prompts.", {
+    return new Response("Failed to fetch prompts created by user", {
       status: 500,
-      statusText: "Internal server error",
     });
   }
 };
