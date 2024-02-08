@@ -1,7 +1,15 @@
-export const Container = ({ children }: { children: React.ReactNode }) => {
+import classNames from "classnames";
+
+export const Container = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
   return (
-    <>
-      <div className="max-w-[120rem] mx-auto">{children}</div>
-    </>
+    <div className={classNames("mx-auto max-w-[120rem] px-8", className)}>
+      {children}
+    </div>
   );
 };
