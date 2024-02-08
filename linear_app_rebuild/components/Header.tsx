@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { Logo } from "./icons/logo";
+import { Logo } from "./icons/Logo";
 import { Container } from "./Container";
+import { Button } from "./Button";
 
 export const Header = () => {
   return (
     <>
-      <header className="fixed top-0 left-0 w-full border-b border-transparent-white">
+      <header className="fixed top-0 left-0 w-full border-b border-transparent-white backdrop-blur-[12px]">
         <Container className="flex h-[var(--navigation-height)]">
           <Link className="flex items-center text-md" href="/">
             <Logo className="w-[1.8rem] h-[1.8rem] mr-4" /> Linear
@@ -41,9 +42,9 @@ export const Header = () => {
             <Link className="text-sm mr-6" href="#">
               Log in
             </Link>
-            <Link className="text-sm mr-6" href="#">
+            <Button href="#" variant="primary">
               Sign Up
-            </Link>
+            </Button>
           </div>
         </Container>
       </header>
