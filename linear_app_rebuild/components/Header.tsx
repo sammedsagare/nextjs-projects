@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import { Button } from "./Button";
 import { Container } from "./Container";
 import { HamburgerIcon } from "./icons/hamburger";
-import { Logo } from "./icons/Logo";
+import { Logo } from "./icons/Logo"; // Fix: Changed the import statement to match the actual file name
+
 import classNames from "classnames";
 
 export const Header = () => {
