@@ -1,15 +1,15 @@
-import { Supercell } from "./logos/supercell";
-import { ArcLogo } from "./logos/arc";
-import { CashAppLogo } from "./logos/cashapp";
-import { DescriptLogo } from "./logos/descript";
-import { HEXLogo } from "./logos/hex";
-import { MercuryLogo } from "./logos/mercury";
-import { RemoteLogo } from "./logos/remote";
-import { RunwayLogo } from "./logos/runway";
-import { RampLogo } from "./logos/ramp";
-import { RaycastLogo } from "./logos/raycast";
-import { RetoolLogo } from "./logos/retool";
-import { VercelLogo } from "./logos/vercel";
+import { Supercell } from "../logos/supercell";
+import { ArcLogo } from "../logos/arc";
+import { CashAppLogo } from "../logos/cashapp";
+import { DescriptLogo } from "../logos/descript";
+import { HEXLogo } from "../logos/hex";
+import { MercuryLogo } from "../logos/mercury";
+import { RemoteLogo } from "../logos/remote";
+import { RunwayLogo } from "../logos/runway";
+import { RampLogo } from "../logos/ramp";
+import { RaycastLogo } from "../logos/raycast";
+import { RetoolLogo } from "../logos/retool";
+import { VercelLogo } from "../logos/vercel";
 
 export const Clients = () => (
   <>
