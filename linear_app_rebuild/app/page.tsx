@@ -1,6 +1,7 @@
 import { Button, Highlight } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { Hero, HeroSubtitle, HeroTitle } from "@/components/Hero";
+import { HeroImage } from "@/components/hero-image";
 import { ChevronIcon } from "@/components/icons/chevron";
 
 export default function Home() {
@@ -29,11 +30,7 @@ export default function Home() {
               <ChevronIcon />
             </Highlight>
           </Button>
-          <img
-            className="rounded-lg mt-[12.8rem]"
-            src="/img/hero.webp"
-            alt="hero image"
-          />
+          <HeroImage />
         </Hero>
       </Container>
     </>
