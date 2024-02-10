@@ -4,6 +4,7 @@ import { Container } from "@/components/Container";
 import { StarsIllustration } from "@/components/icons/starts_illustration";
 import { UnlikeAnyTool } from "@/components/sections/unlike-any-tool";
 import classNames from "classnames";
+import { EnjoyIssueTracking } from "@/components/sections/enojoy-issue-tracking";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <Container>
         <UnlikeAnyTool />
       </Container>
+      <EnjoyIssueTracking />
     </>
   );
 }
